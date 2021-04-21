@@ -1,7 +1,6 @@
-header {
+.main-header{
   height:400px; 
   width: 100%;
-  /* position: absolute; */
   top: 0px;
   display: flex;
   flex-direction: column;
@@ -12,7 +11,6 @@ header {
 }
 img{
   height: 200px; 
-  /* margin: 20px; */
 }
 #username {
   height: 50px;
@@ -23,8 +21,3 @@ h2{
   margin-top: 0px;
   margin-bottom: 0.1em;
 }
-/* #background-img{
-  height: 100%;
-  width: 100%;
-  position: ;
-} */

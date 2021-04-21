@@ -7,6 +7,8 @@ const express       = require("express");
 const bodyParser    = require("body-parser");
 const app           = express();
 
+// const timeago = require('https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js');
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
@@ -32,6 +34,7 @@ const tweetsRoutes = require("./routes/tweets")(DataHelpers);
 // Mount the tweets routes at the "/tweets" path prefix:
 app.use("/tweets", tweetsRoutes);
 
+// timeago.render(document.querySelectorAll('time-ago-date'));
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);

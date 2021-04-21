@@ -7,9 +7,12 @@ $(document).ready(function() {
     $('output[for='+  this.id  +']').html(count);
     if (count < 0) {
       $('output[for='+  this.id  +']').addClass('text-over-limit')
+    } else {
+      $('output[for='+  this.id  +']').removeClass('text-over-limit')
+
     }
-    console.log(count)
     
-  
   });
 });
+    
+  
