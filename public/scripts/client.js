@@ -3,6 +3,11 @@
 * jQuery is already loaded
 * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 const renderTweets = function (tweets) {
   // loops through tweets
@@ -13,13 +18,13 @@ const renderTweets = function (tweets) {
     $('.tweet-container').prepend($tweet);
   } else {
     const tweetArrayReverse = tweets.reverse();
-    
     for (let tweet of tweetArrayReverse) {
       const $tweet = createTweetElement(tweet);
       $('.tweet-container').append($tweet);
     }
   }
 }
+    
 
 
 const createTweetElement = function (tweetData) {
@@ -35,7 +40,7 @@ const createTweetElement = function (tweetData) {
   </header>`);
   const $main = $(`<main class="posted-text">
   <div>
-  <p>${tweetData.content.text}</p>
+  <p>${escape(tweetData.content.text)}</p>
   </div>
   </main>
   `);
@@ -55,54 +60,41 @@ const createTweetElement = function (tweetData) {
 
 
 $(function () {
+  loadTweets();
   $(".new-tweet-form").submit(function (event) {
     event.preventDefault();
     let textContent = $("#tweet-text").val();
     if (textContent.length > 140) {
-      alert("tweet over 140 words!")
+      $('#error-message-over').slideDown();
       return;
     } else if (textContent.length === 0) {
-      alert("empty! please say something")
+      $('#error-message-empty').slideDown();
       return;
     }
+      
     const formData = $(this).serialize();
     $.ajax({
       url: '/tweets',
       data: formData,
       type: 'POST'
     })
-    .done(function () {
-      loadNewTweets(() => {
-        timeago.render(document.querySelectorAll('.time-ago-date'));
-        $( ".new-tweet-form" )[0].reset();
-      })
+    .then(loadTweets)
+    .then(() => {
+      $("#tweet-text").val('');
     })
   })
 })
 
 
-const loadTweets = function (callback) {
+const loadTweets = function () {
+  $('.tweet-container').empty();
   $.ajax('/tweets', { method: 'GET' })
     .then(function (data) {
       renderTweets(data);
-      callback();
-    });
-}
-const loadNewTweets = function (callback) {
-  $.ajax('/tweets', { method: 'GET' })
-    .then(function (data) {
-      const newTweetInfo = [];
-      newTweetInfo.push(data[data.length-1])
-      renderTweets(newTweetInfo);
-      callback();
+      timeago.render(document.querySelectorAll('.time-ago-date'));
     });
 }
 
-
-// set the time ago for each tweet
-loadTweets(() => {
-  timeago.render(document.querySelectorAll('.time-ago-date'));
-});
     
 
 

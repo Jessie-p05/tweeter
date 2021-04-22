@@ -58,8 +58,12 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
+      <div class="error-message">
+        <p id="error-message-over">words over limit, please make your tweet in 140 words!</p>
+        <p id="error-message-empty">empty! please say something</p>
+      </div>
       <!-- <h2>Compose Tweet</h2> -->
-      <form action="/tweets/" method="POST" class="new-tweet-form">
+      <form class="new-tweet-form">
         <!-- <label for="tweet-text">What are you humming about?</label> -->
         <textarea name="text" id="tweet-text"  placeholder="What are you humming about?"></textarea>
         <div class="tweet-submit">
@@ -68,6 +72,7 @@
         </div>
       </form>
     </section>
+    <!-- <div class="error-message-container"></div> -->
     <section class="tweet-container"></section>
   </main>
   <!-- App JS -->

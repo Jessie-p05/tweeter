@@ -17,6 +17,7 @@
 }
 form,textarea{
   width: 100%;
+  margin-top: 5px;
 }
 .tweet-submit {
   font-family: 'Bungee', sans-serif;
@@ -31,4 +32,13 @@ button{
 }
 .text-over-limit{
   color: red;
+}
+.error-message {
+  font-family: "Bungee";
+  color: red;
+  height: 30px;
+  font-size: 16px;
+}
+#error-message-over,#error-message-empty {
+  display:none;
 }
