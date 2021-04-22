@@ -32,9 +32,7 @@
     integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
     crossorigin="anonymous"></script>
 
-  <!-- App JS -->
-  <script type="text/javascript" src="/scripts/client.js"></script>
-  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+  
 </head>
 
 <body>
@@ -61,43 +59,20 @@
   <main class="container">
     <section class="new-tweet">
       <!-- <h2>Compose Tweet</h2> -->
-      <form action="/tweets/" method="POST">
+      <form action="/tweets/" method="POST" class="new-tweet-form">
         <!-- <label for="tweet-text">What are you humming about?</label> -->
-        <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+        <textarea name="text" id="tweet-text"  placeholder="What are you humming about?"></textarea>
         <div class="tweet-submit">
           <button type="submit">Tweet</button>
           <output name="counter" class="counter" for="tweet-text">140</output>
         </div>
       </form>
     </section>
-    <section class="posted-tweet">
-      <header>
-        <div class="avatar-name">
-          <i class="far fa-user"></i>
-          <span>Jessie</span>
-        </div>
-        <div>
-          <p class="username">name</p>
-        </div>
-      </header>
-      <main class="posted-text">
-        <div>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae earum vitae veritatis totam rem
-            doloremque hic magnam alias. Repudiandae expedita amet vitae quas eius minus illum excepturi sapiente velit
-            architecto!</p>
-      </main>
-      </div>
-
-      <footer>
-        <span class="time-ago-date" datetime="2021-04-01"></span>
-        <div>
-          <i class="fas fa-flag like-icon"></i>
-          <i class="fas fa-retweet like-icon"></i>
-          <i class="fas fa-heart like-icon"></i>
-        </div>
-      </footer>
-    </section>
+    <section class="tweet-container"></section>
   </main>
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/client.js"></script>
+  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 </body>
 
 </html>

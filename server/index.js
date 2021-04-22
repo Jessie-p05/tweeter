@@ -34,7 +34,6 @@ const tweetsRoutes = require("./routes/tweets")(DataHelpers);
 // Mount the tweets routes at the "/tweets" path prefix:
 app.use("/tweets", tweetsRoutes);
 
-// timeago.render(document.querySelectorAll('time-ago-date'));
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
