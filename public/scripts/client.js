@@ -3,16 +3,18 @@
 * jQuery is already loaded
 * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
+//function to make the input from user safe for the server
 const escape = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
 
+
+// loops through tweets
+// calls createTweetElement for each tweet
+// takes return value and appends it to the tweets container
 const renderTweets = function (tweets) {
-  // loops through tweets
-  // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
   if (tweets.length === 1) {
     const $tweet = createTweetElement(tweets[0]);
     $('.tweet-container').prepend($tweet);
@@ -26,7 +28,7 @@ const renderTweets = function (tweets) {
 }
     
 
-
+//create a template to post each tweet 
 const createTweetElement = function (tweetData) {
   const $tweet = $(`<article class="posted-tweet"></article>`);
   const $header = $(`<header>
@@ -58,9 +60,11 @@ const createTweetElement = function (tweetData) {
   return $tweet;
 }
 
-
+//actions after DOM is ready
 $(function () {
+  //to load all the exist tweet in database
   loadTweets();
+  //post a tweet after user click submit button
   $(".new-tweet-form").submit(function (event) {
     event.preventDefault();
     let textContent = $("#tweet-text").val();
@@ -71,7 +75,7 @@ $(function () {
       $('#error-message-empty').slideDown();
       return;
     }
-      
+    //send data to server with ajax  and send a get request after 
     const formData = $(this).serialize();
     $.ajax({
       url: '/tweets',
@@ -81,11 +85,12 @@ $(function () {
     .then(loadTweets)
     .then(() => {
       $("#tweet-text").val('');
+      $('.counter').html(140);
     })
   })
 })
 
-
+//function to request the data in database
 const loadTweets = function () {
   $('.tweet-container').empty();
   $.ajax('/tweets', { method: 'GET' })

@@ -1,0 +1,36 @@
+.body-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+.c1, .c2, .c4 {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .body-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+  }
+  .c1 {
+    width: 25%;
+    height: 300px;
+  }
+
+  .c4 {
+    width: 75%;
+    padding-left:15%;
+  }
+
+}
+
+@media (min-width: 1080px) {
+  .body-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+  }
+}

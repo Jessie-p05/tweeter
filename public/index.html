@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
   <link rel="stylesheet" href="/styles/post-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/mobile-style.css" type="text/css" />
 
 
 
@@ -32,49 +33,53 @@
     integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
     crossorigin="anonymous"></script>
 
-  
+
 </head>
 
 <body>
   <!-- Top nav bar (fixed) -->
-  <nav>
+  <nav class="c2">
     <span class="logo">tweeter</span>
     <div class="write-new-tweet">
       <span>Write a new tweet</span>
       <i class="fas fa-angle-double-down" id="arrow-icon"></i>
     </div>
   </nav>
-  <header class="main-header">
-    <div>
-      <img src="/images/profile-hex.png">
-    </div>
-    <!-- <br> -->
-    <div id="username">
-      <h2>Jessie</h2>
-    </div>
-  </header>
-
-
-  <!-- Page-specific (main) content here -->
-  <main class="container">
-    <section class="new-tweet">
-      <div class="error-message">
-        <p id="error-message-over">words over limit, please make your tweet in 140 words!</p>
-        <p id="error-message-empty">empty! please say something</p>
+  <!-- a div for mobile style container -->
+  <div class="body-container">
+    <header class="main-header c1">
+      <div>
+        <img src="/images/profile-hex.png">
       </div>
-      <!-- <h2>Compose Tweet</h2> -->
-      <form class="new-tweet-form">
-        <!-- <label for="tweet-text">What are you humming about?</label> -->
-        <textarea name="text" id="tweet-text"  placeholder="What are you humming about?"></textarea>
-        <div class="tweet-submit">
-          <button type="submit">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
+      <div id="username">
+        <h2>Jessie</h2>
+      </div>
+    </header>
+
+
+    <!-- Page-specific (main) content here -->
+    <main class="container c4">
+      <section class="new-tweet">
+
+        <div class="error-message">
+          <p id="error-message-over">words over limit, please make your tweet in 140 words!</p>
+          <p id="error-message-empty">empty! please say something</p>
         </div>
-      </form>
-    </section>
-    <!-- <div class="error-message-container"></div> -->
-    <section class="tweet-container"></section>
-  </main>
+
+        <form class="new-tweet-form">
+          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+          <div class="tweet-submit">
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+
+      </section>
+      <section class="tweet-container"></section>
+    </main>
+  </div>
+
+
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
