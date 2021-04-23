@@ -37,11 +37,13 @@ padding-right: 10px;
 
 }
 .posted-text div{
+  max-width: 500px;
   width: 95%;
   border: none;
   border-bottom: 4px black solid;
   display: flex;
   justify-content: center;
+  overflow-wrap: break-word;
 }
 .posted-text p{
   width: 90%;
