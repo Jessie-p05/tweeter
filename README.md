@@ -18,3 +18,8 @@ This repository is the starter code for the project: Students will fork and clon
 - Body-parser
 - Chance
 - md5
+
+## Screenshots
+!['screenshot for full screen style tweeter web page'](https://github.com/Jessie-p05/tweeter/blob/master/docs/full%20screen%20style.png?raw=true)
+!['screenshot for mobile style tweeter web page'](https://github.com/Jessie-p05/tweeter/blob/master/docs/mobile%20style.png?raw=true)
+!['screenshot for text box to post a new tweet'](https://github.com/Jessie-p05/tweeter/blob/master/docs/creat%20new%20tweet.png?raw=true)
